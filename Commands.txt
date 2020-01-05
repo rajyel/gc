@@ -1,1 +1,32 @@
 java -Xms6G -Xmx8G -XX:+PrintGCDetails -XX:+UseConcMarkSweepGC  TestGC
+
+d:\jdk-13.0.1\bin\java -Xms6G -Xmx8G -XX:+PrintGCDetails  -XX:+UnlockExperimentalVMOptions  -XX:+UseShenandoahGC  TestGC
+
+When latency is the concern use Z1GC and Sheradon gc - 
+when thoughput is the concern use G1 GC
+
+predictable - 
+Z GC - pauser time will be met 
+G1 GC - may get expensive no guarantee when STW will happen 
+
+Z and Sheradon - guranted GC,mark and sweek , experimental
+
+fowarding pointers.
+ loaded reference barrier (azul gc and z gc)
+ 
+ java -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC -Xlog:gc -Xmx1g -Dmb=5024 
+MemoryAllocator)
+
+-Xlog:gc (since JDK 9) or -verbose:gc (up to JDK 8) would print the individual GC timings. 
+
+-Xlog:gc+ergo (since JDK 9) or -XX:+PrintGCDetails (up to JDK 8) or would print the heuristics decisions, which might shed light on outliers, if any.
+
+-Xlog:gc+stats (since JDK 9) or -verbose:gc (up to JDK 8) would print the summary table on Shenandoah internal timings at the end of the run. 
+
+-XX:+UseShenandoahGC
+-XX:+UnlockExperimentalVMOptions
+-XX:+UseZGC
+-XX:+UseEpsilonGC
+
+https://jelastic.com/blog/garbage-collection/
+https://wiki.openjdk.java.net/display/shenandoah/Main 
