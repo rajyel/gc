@@ -1,5 +1,6 @@
 import java.time.*;
 import java.time.temporal.*;
+import java.util.Scanner;
 public class TestGC {
  
  
@@ -8,6 +9,10 @@ public class TestGC {
 		previous = Instant.now();
 	
 		TestGC memoryTest = new TestGC();
+		Scanner in = new Scanner(System.in); 
+  
+        String s = in.nextLine(); 
+        System.out.println("You entered string "+s); 
 		memoryTest.generateOOM();
 			current = Instant.now();
 			 long l  = ChronoUnit.MILLIS.between(previous,current);

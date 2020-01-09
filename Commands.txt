@@ -30,3 +30,5 @@ MemoryAllocator)
 
 https://jelastic.com/blog/garbage-collection/
 https://wiki.openjdk.java.net/display/shenandoah/Main 
+
+Occupancy is the amount of water in the pipe through which we are measuring latency and throughput. The throughput is the rate at which water leaves the pipe, and the latency is the time it takes to get water from one end of the pipe to the other
