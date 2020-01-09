@@ -1,0 +1,52 @@
+Introduction to Garbage Collection
+
+Refresh Yourself 
+
+More of Conceptual talk !!
+VM thread
+Periodic task thread
+Garbage collection threads
+JIT compiler threads.
+Signal dispatcher thread
+
+
+Heap
+Heap space in Java is used for dynamic memory allocation for Java objects and JRE classes at the runtime 
+ -Xms=1GB -Xmx=1GB
+ 
+Stack Access to this memory is in Last-In-First-Out (LIFO) order
+Variables exist as long as method that created them is running
+Access to this memory is fast when compared to heap memory
+-Xss
+
+Why does Java Stop?
+
+The Heap reclaiming - Garbage collection
+
+JLS - When an object is no longer referenced, it may be reclaimed by the garbage
+collector.
+
+“Stop-the-world” in the context of garbage collection means that all Java executing threads
+are blocked or stopped from executing in Java code while the garbage collector frees up
+memory as a result of finding Java objects no longer in use by the application.
+
+Structure of Heap 
+Young 
+  Eden 
+  Survivor 
+Old Generation
+Permanent / Metaspace 
+XX:SurvivorRatio=6 sets the ratio between each survivor space and eden to be 1:6,  
+
+Types of GCs
+
+A young collection occurs when eden has filled up. The young collection moves all
+objects out of eden: some are moved to one of the survivor spaces (S0 in this diagram)
+and some are moved to the old generation
+
+
+
+
+
+This GC aims to keep pause time to below 10ms whilst handling heaps of any size.
+ZGC will be able to uncommit memory so it is available for the operating system again.
